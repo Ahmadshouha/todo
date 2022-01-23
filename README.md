@@ -1,4 +1,5 @@
 # todo-project
 my first html project
+![todo](https://user-images.githubusercontent.com/97868922/150664595-20afb8f5-490f-487d-bb86-8fc669f5dee2.jpg)
 
-![todo](https://user-images.githubusercontent.com/97868922/150664581-8d30f534-17d3-4b05-906a-c046f9316a31.jpg)
+
