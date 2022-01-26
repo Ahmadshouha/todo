@@ -1,33 +1,21 @@
-var yourName = prompt("whats your name");
-var gender = prompt("whats your gender\nThe answer should be either (male or female).");
-var age = prompt("how old are you");
-var welcome = prompt("do you want to skip the welcoming messege")
-if(welcome=="yes"){
-    console.log(ok) 
-
-
-    }
-else{
-        if(gender=="male"){
-            alert("welcome mr " + yourName);
-            }
-            
-            else if(gender=="female"){
-              alert("welcome miss " + yourName)
-           
-            }
-            else{
-                alert("Welcome "+ yourName)
-            }
-    
-        }
-if(age>=0){
-console.log(age) 
+'use strict';
+function askQuestion(question){
+    let answer = prompt(question);
+console.log(answer=="yes"|| answer=="no");
+if(answer=="yes"|| answer=="no"){
+    return answer;
 }
-
-else{
-  alert("wrong input")
+else if (answer ==" "){
+    return "invalid"
 }
+}
+let questionOne = askQuestion ("do you like school");
+let questionTwo = askQuestion ("do you like studying early in the morning");
+let questionThree = askQuestion("do you like studying late at the night");
 
-   
-  
+let answerArr=[questionOne,questionTwo,questionThree];
+console.log(answerArr);
+
+for(let i=0; i<answerArr.length; i++){
+    console.log(answerArr[i]);
+}
