@@ -1,0 +1,141 @@
+<!doctype html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About</title>
+  <link rel="stylesheet" href="./css/home.css">
+
+</head>
+<body>
+<form id="employeeForm">
+  <div class="grid-container1">	
+
+    <header class="container">
+            
+    </header>
+<nav class="header-nav">
+    <a href="home.html">home</a>
+    <a href="employee.html">Employee</a>
+    <a href="accounting.html">Account</a>
+    <a href="about.html">about</a>
+     </nav>
+
+
+      <div class="grid-container1">
+
+          <header class="container">
+
+          </header>
+
+
+
+
+
+          <div class="tbl">
+              <h2 class="column center">Account Details</h2>
+              <div class="row">
+                  <div class="row cell">Department Name </div>
+                  <div class="row cell">Number of Employee</div>
+                  <div class="row cell">Average Salary</div>
+                  <div class="row cell">Total Salary</div>
+
+              </div>
+              <div class="row">
+                  <div class="row cell">Administration</div>
+                  <div id="adminNo" class="cell"></div>
+                  <div id="adminAvgSal" class="cell"></div>
+                  <div id="adminTotSal" class="cell"></div>
+              </div>
+              <div class="row">
+                  <div class="row cell">Marketing</div>
+                  <div id="markNo" class="cell"></div>
+                      <div id="markAvgSal" class="cell"></div>
+                          <div id="markTotSal" class="cell"></div>
+              </div>
+              <div class="row">
+                  <div class="row cell">Development</div>
+                  <div id="devNo" class="cell"></div>
+                  <div id="devAvgSal" class="cell"></div>
+                  <div id="devTotSal"  class="cell"></div>
+              </div>
+              <div class="row">
+                  <div class="row cell">Finance</div>
+                  <div id="finNo"  class="cell"></div>
+                  <div id="finAvgSal" class="cell"></div>
+                  <div id="finTotSal" class="cell"></div>
+              </div>
+
+
+
+              <footer>
+              </footer>
+          </div>
+      </div>
+
+  </div>
+  <div style="height:10px;">
+  </div>
+
+      <script>
+      let jsonArr = localStorage.getItem('employees');
+    let employeesFromLS = JSON.parse(jsonArr);
+     // alert('len '+employeesFromLS.length);
+      var adminDeptTotal = 0;
+      var adminDeptSalary = 0;
+      var marketingDeptTotal = 0;
+       var marketingDeptSalary = 0;
+      var devDeptTotal = 0;
+      var devDeptSalary = 0;
+      var financeDeptTotal = 0;
+      var financeDeptSalary = 0;
+
+       for (let i = 0; i < employeesFromLS.length; i++) {
+
+        if (employeesFromLS[i].department == "Administration"){
+        adminDeptTotal++;
+        adminDeptSalary += employeesFromLS[i].salary;
+        }
+        if (employeesFromLS[i].department == "Marketing"){
+        marketingDeptTotal++;
+        marketingDeptSalary += employeesFromLS[i].salary;
+        }
+        if (employeesFromLS[i].department == "Development"){
+        devDeptTotal++;
+        devDeptSalary += employeesFromLS[i].salary;
+        }
+        if (employeesFromLS[i].department == "Finance"){
+        financeDeptTotal++;
+        financeDeptSalary += employeesFromLS[i].salary;
+        }
+
+   }
+   var avg1 = !isNaN(adminDeptSalary/adminDeptTotal)?adminDeptSalary/adminDeptTotal:0;
+   var avg2 = !isNaN(marketingDeptSalary/marketingDeptTotal)?marketingDeptSalary/marketingDeptTotal:0;
+   var avg3 = !isNaN(devDeptSalary/devDeptTotal)?devDeptSalary/devDeptTotal:0;
+   var avg4 = !isNaN(financeDeptSalary/financeDeptTotal)?financeDeptSalary/financeDeptTotal:0;
+   document.getElementById('adminNo').innerHTML=adminDeptTotal;
+   document.getElementById('adminAvgSal').innerHTML=avg1;
+    document.getElementById('adminTotSal').innerHTML=adminDeptSalary;
+    document.getElementById('markNo').innerHTML=marketingDeptTotal;
+   document.getElementById('markAvgSal').innerHTML=avg2;
+    document.getElementById('markTotSal').innerHTML=marketingDeptSalary;
+     document.getElementById('devNo').innerHTML=devDeptTotal;
+   document.getElementById('devAvgSal').innerHTML= avg3;
+    document.getElementById('devTotSal').innerHTML=devDeptSalary;
+     document.getElementById('finNo').innerHTML=financeDeptTotal;
+   document.getElementById('finAvgSal').innerHTML= avg4;
+    document.getElementById('finTotSal').innerHTML=financeDeptSalary;
+    var total = adminDeptTotal+marketingDeptTotal+devDeptTotal+financeDeptTotal;
+
+  </script>
+    <footer >
+| Department | # of employees | Total Salary | | Average | |----|----|----|----| | Administration | | Marketing | | Development | | Finance |
+        | Total | <script>document.write(total);</script>  | <script>document.write(adminDeptSalary+marketingDeptSalary+devDeptSalary+financeDeptSalary);</script>  | <script>document.write(avg1+avg2+avg3+avg4);</script> |
+    </footer>
+  </div>
+      </form>
+</body>
+</html>
