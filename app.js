@@ -1,33 +1,29 @@
-var yourName = prompt("whats your name");
-var gender = prompt("whats your gender\nThe answer should be either (male or female).");
-var age = prompt("how old are you");
-var welcome = prompt("do you want to skip the welcoming messege")
-if(welcome=="yes"){
-    console.log(ok) 
+var yourName = prompt("Please enter your name:");
+// alert ("Hello "+yourName)
+var yourGender = prompt("Please enter your Gender(male/female):");
 
+var yourAge = prompt("Please enter your Age:");
 
-    }
-else{
-        if(gender=="male"){
-            alert("welcome mr " + yourName);
-            }
-            
-            else if(gender=="female"){
-              alert("welcome miss " + yourName)
-           
-            }
-            else{
-                alert("Welcome "+ yourName)
-            }
-    
-        }
-if(age>=0){
-console.log(age) 
+if (yourAge <= 0) {
+  alert("This is not an age");
 }
 
-else{
-  alert("wrong input")
+var welcomeMassege = prompt("would you like to see the welcoming message?");
+
+var mr = "Welcome Mr";
+var ms = "Welcome Ms";
+
+if (welcomeMassege.toLowerCase() === "y" || "yes") {
+  if (yourGender.toLowerCase() === "male") {
+    alert(mr + " " + yourName);
+  } else if (yourGender.toLowerCase() === "female") {
+    alert(ms + " " + yourName);
+  } else {
+    alert("Welcome " + " " + yourName);
+  }
 }
+
+
 
    
   
